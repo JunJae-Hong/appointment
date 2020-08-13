@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>예약 현황</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<style>
+  h1{
+    margin-left: 42.5%;
+  }
+  #calendar {
+    width: 90%;
+    margin-left: 4.9em;
+  }
+  #calendar a {
+    color:black;
+    background-color: white;
+    text-decoration: none;
+  }
+  #calendar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  #calendar li {
+    display: block;
+    float: left;
+    width: 14.342%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin-right: -1px;
+    margin-bottom: -1px;
+  }
+  #calendar ul.weekdays {
+    height: 40px;
+    background: white;
+  }
+  #calendar ul.weekdays li {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 20px;
+    border: none !important;
+    padding: 10px 6px;
+    margin-bottom: 10px;
+    color:black;
+    font-size: 16px;
+  }
+  #calendar .days li {
+    height: 150px;
+  }
+  #calendar .days li:hover {
+    background: #d3d3d3;
+  }
+  #calendar .date {
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 4px;
+    color:black;
+    width: 20px;
+    float: left;
+  }
+  #calendar .event {
+    clear: both;
+    display: block;
+    font-size: 13px;
+    border-radius: 4px;
+    padding: 5px;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    line-height: 14px;
+    text-decoration: none;
+  }
+  #calendar .event-desc {
+    color: #666;
+    margin: 5px 0 5px 0;
+    text-decoration: none;
+  }
+  #calendar .other-month {
+    color: #666;
+  }
+  a:link { color: red; text-decoration: none;}
+  a:visited { color: black; text-decoration: none;}
+  
+  h3{
+    margin: 2em;
+   }
+   .do{
+       margin-left: 4.3em;
+       font-size: 1.2em;
+   }
+  hr{
+    width: 90%;
+    border: black solid 0.02px;
+  }
+  .btn{
+    background-color: white;
+    border: rgb(177, 177, 177) 1px solid;
+    width: 100px;
+    height: 40px;
+    float: left;
+  }
+    .btn-second{
+        background-color: white;
+        border: none;
+    }
+</style>
+</head>
+<body>
+  <header>
+    <h3 style="text-align: center;">룸 예약현황</h3>
+      <div class="do">
+        <button class="btn">
+          <a href="{% url 'create' %}">룸 예약하기</a>
+        </button>
+        <h1> 2020.08</h1>
+      </div>
+
+     
+      <hr>
+</header>
+  <div id="calendar-wrap">
+    <div id="calendar">
+      <ul class="weekdays">
+          <li>일요일</li>
+          <li>월요일</li>
+          <li>화요일</li>
+          <li>수요일</li>
+          <li>목요일</li>
+          <li>금요일</li>
+          <li>토요일</li>
+      </ul>
+      <!-- Days from previous month -->
+      <ul class="days">
+          <li class="day other-month">
+              <div class="date">27</div>                     
+          </li>
+          <li class="day other-month">
+              <div class="date">28</div>
+              <div class="event">
+                  <div class="event-desc">
+                    3인 3시간/김*아님 완료
+                  </div>
+                  
+              </div>                     
+          </li>
+          
+          <li class="day other-month">
+              <button class="btn-second">
+                <div class="date"><a href="read.html" onclick="window.open(this.href, '_blank', 'width=500px,height=500px,toolbars=no,scrollbars=no'); return false;">29</a></div> 
+              </button>
+                                  
+          </li>
+          <li class="day other-month">
+              <div class="date">30</div>                     
+          </li>
+          <li class="day other-month">
+              <div class="date">31</div>                     
+          </li>
+          <!-- Days in current month -->
+          <li class="day">
+              <div class="date">1</div>                      
+          </li>
+          <li class="day">
+              <div class="date">2</div>
+              <div class="event">
+                  <div class="event-desc">
+                      2인 2시간/김*별님 완료
+                  </div>
+                  <div class="event-time">
+                      5인 3시간/홍*재님 완료
+                  </div>
+              </div>                     
+          </li>
+      </ul>
+          <!-- Row #2 -->
+      <ul class="days">
+          <li class="day">
+              <div class="date">3</div>                      
+          </li>
+          <li class="day">
+              <div class="date">4</div>                      
+          </li>
+          <li class="day">
+              <div class="date">5</div>                      
+          </li>
+          <li class="day">
+              <div class="date">6</div>                      
+          </li>
+          <li class="day">
+              <div class="date">7</div>
+              <div class="event">
+                  <div class="event-desc">
+                      3인 3시간/김*아님 완료
+                  </div>
+                  <div class="event-time">
+                      8인 2시간/박*영님 완료
+                  </div>
+              </div>                     
+          </li>
+          <li class="day">
+              <div class="date">8</div>                      
+          </li>
+          <li class="day">
+              <div class="date">9</div>                      
+          </li>
+      </ul>
+          <!-- Row #3 -->
+      <ul class="days">
+          <li class="day">
+              <div class="date">10</div>                     
+          </li>
+          <li class="day">
+              <div class="date">11</div>                     
+          </li>
+          <li class="day">
+              <div class="date">12</div>                     
+          </li>
+          <li class="day">
+              <div class="date">13</div>                     
+          </li>
+          <li class="day">
+              <div class="date">14</div><div class="event">
+                  <div class="event-desc">
+                    3인 3시간/김*아님 완료
+                  </div>                   
+          </li>
+          <li class="day">
+              <div class="date">15</div>                     
+          </li>
+          <li class="day">
+              <div class="date">16</div>                     
+          </li>
+      </ul>
+          <!-- Row #4 -->
+      <ul class="days">
+          <li class="day">
+              <div class="date">17</div>                     
+          </li>
+          <li class="day">
+              <div class="date">18</div>                     
+          </li>
+          <li class="day">
+              <div class="date">19</div>                     
+          </li>
+          <li class="day">
+              <div class="date">20</div>                     
+          </li>
+          <li class="day">
+              <div class="date">21</div>                     
+          </li>
+          <li class="day">
+              <div class="date">22</div>                
+          </li>
+          <li class="day">
+              <div class="date">23</div>                     
+          </li>
+      </ul>
+              <!-- Row #5 -->
+      <ul class="days">
+          <li class="day">
+              <div class="date">24</div>                     
+          </li>
+          <li class="day">
+              <div class="date">25</div>         
+          </li>
+          <li class="day">
+              <div class="date">26</div>                     
+          </li>
+          <li class="day">
+              <div class="date">27</div>                     
+          </li>
+          <li class="day">
+              <div class="date">28</div>                     
+          </li>
+          <li class="day">
+              <div class="date">29</div>                     
+          </li>
+          <li class="day">
+              <div class="date">30</div>                     
+          </li>
+      </ul>
+      <!-- Row #6 -->
+      <ul class="days">
+          <li class="day">
+              <div class="date">31</div>                     
+          </li>
+          <li class="day other-month">
+              <div class="date">1</div> <!-- Next Month -->                      
+          </li>
+          <li class="day other-month">
+              <div class="date">2</div>                      
+          </li>
+          <li class="day other-month">
+              <div class="date">3</div>                      
+          </li>
+          <li class="day other-month">
+              <div class="date">4</div>                      
+          </li>
+          <li class="day other-month">
+              <div class="date">5</div>                      
+          </li>
+          <li class="day other-month">
+              <div class="date">6</div>                      
+          </li>
+      </ul>
+  </div><!-- /. calendar -->
+</div><!-- /. wrap -->
+ 
+
+  
+</body>
+</html>
+
